@@ -1,226 +1,350 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Iyata Anthony — Portfolio</title>
+
+  <!--
+    IMPORTANT:
+    - Upload your PDF files and images to the same folder as this index.html (root of the repo).
+    - Required filenames used in this HTML (change them here if you use different names):
+        professional_cv.pdf
+        certificates.pdf
+        smarthub.jpg, gtech.png, shield.png, zane.jpeg, cmu.jpeg, nnpc.png, kcrc.png
+    - Academic CV is left as a placeholder. When you upload it, change the '#academic' preview src or filename.
+  -->
+
   <style>
-    :root{--accent:#4a4aff;--muted:#6b7280;--bg:#f7f8fb}
+    :root{
+      --accent:#6f7bff;
+      --accent-2:#4a4aff;
+      --muted:#6b7280;
+      --card-bg:#ffffff;
+      --page-bg:#f5f6fb;
+      --glass: rgba(255,255,255,0.85);
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#0f172a;line-height:1.5}
-    header{
-  background:linear-gradient(90deg, var(--accent), #6789ff);
-  color:#fff;
-  padding:32px 20px 40px; /* reduced height */
-  border-bottom-left-radius:40px;
-  border-bottom-right-radius:40px;
-}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Helvetica Neue", Arial;
+      background:var(--page-bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-    .container{max-width:1000px;margin:0 auto;padding:20px}
-    nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px}
-    nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
-    nav a:hover{background:rgba(255,255,255,0.08)}
-    .hero{display:flex;gap:20px;align-items:center;flex-direction:column;text-align:center}
-    .hero h1{font-size:28px;margin:8px 0}
+    /* Header (reduced hero height) */
+    .site-header{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#fff;
+      padding:36px 20px 40px;
+      border-bottom-left-radius:28px;
+      border-bottom-right-radius:28px;
+    }
+    .header-inner{
+      max-width:1000px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      gap:24px;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .brand img{width:72px;height:72px;border-radius:999px;object-fit:cover;border:6px solid rgba(255,255,255,0.15)}
+    .brand h1{margin:0;font-size:22px;font-weight:700}
+    .hero{
+      text-align:center;
+      padding:18px 20px 8px;
+    }
+    .hero h2{font-size:28px;margin:12px 0 6px;color:#fff}
     .hero p{margin:0;color:rgba(255,255,255,0.95)}
-    .btn{display:inline-block;background:var(--accent);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;margin-top:14px}
-    section.card{background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(15,23,42,0.06);padding:28px;margin:26px 0}
-    h2{color:var(--accent);margin-top:0}
-    .two-col{display:flex;gap:24px}
-    .col{flex:1}
-    ul{padding-left:18px}
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{
-    background:#f5f5f5;
-    padding:6px 10px;
-    border-radius:6px;
-    font-size:14px;
-    color:#444;
-    border:1px solid #ddd;
-}
 
-    footer{padding:24px;text-align:center;color:var(--muted)}
-    @media(max-width:760px){.two-col{flex-direction:column}.hero h1{font-size:24px}}
-    .meta{color:var(--muted);font-size:14px}
-    .section-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .chip{background:#f1f5f9;padding:8px 10px;border-radius:10px;font-weight:600}
-    .line{height:1px;background:#eef2ff;margin:18px 0}
-    .download{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid #e6eefb;text-decoration:none;color:var(--accent);font-weight:700}
+    /* Nav chips like screenshot but responsive */
+    .nav-chips{
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .nav-chips a{
+      color:white;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:8px;
+      font-weight:600;
+      background:transparent;
+      opacity:.95;
+      transition:transform .18s ease, background .18s;
+    }
+    .nav-chips a:hover{transform:translateY(-4px); background: rgba(255,255,255,0.06)}
+
+    /* Main content */
+    main{max-width:1000px;margin:28px auto;padding:0 16px;}
+
+    /* Card style */
+    .card{
+      background:var(--card-bg);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(13,18,25,0.06);
+      margin-bottom:20px;
+    }
+    h2.section-title{
+      color:var(--accent-2);
+      font-size:24px;
+      margin:0 0 14px;
+    }
+    p.lead{color:var(--muted);margin:0 0 12px}
+
+    /* Two-column where needed */
+    .two-col{display:flex;gap:20px;flex-wrap:wrap}
+    .col{flex:1;min-width:240px}
+
+    /* Skills chips */
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skills .skill{
+      background:#eef2ff;
+      padding:8px 12px;
+      border-radius:12px;
+      font-weight:600;
+      color:#111827;
+      box-shadow:inset 0 -1px 0 rgba(0,0,0,0.02);
+    }
+
+    /* Work icons grid */
+    .work-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+      gap:18px;
+    }
+    .work-card{
+      text-align:center;
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(14,22,48,0.04);
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      transition:transform .22s ease, box-shadow .22s ease;
+    }
+    .work-card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(13,18,25,0.08)}
+    .work-card img{width:64px;height:64px;object-fit:contain;margin-bottom:8px}
+
+    /* Footer */
+    footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* PDF modal */
+    .modal{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999;
+    }
+    .modal.show{display:flex}
+    .modal-content{
+      background:#fff;border-radius:10px;width:95%;max-width:1000px;height:85vh;overflow:hidden;display:flex;flex-direction:column;
+    }
+    .modal-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #eee}
+    .modal-body{flex:1}
+    .modal-body iframe{width:100%;height:100%;border:0;display:block}
+
+    /* small screens */
+    @media(max-width:720px){
+      .hero h2{font-size:22px}
+      .brand img{width:84px;height:84px}
+      .nav-chips{gap:10px}
+      .work-card img{width:56px;height:56px}
+    }
   </style>
 </head>
 <body>
-  <header>
-  <div class="container hero">
-      <img src="1727691947865.jpg"
-           alt="Iyata Anthony"
-           width="120"
-           height="120"
-           style="border-radius:999px;object-fit:cover;">
 
-      <div>
-        <h1>Iyata Anthony</h1>
-        <p class="meta">Researcher • Podcaster • Product Analyst</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <!-- Your profile image: replace src with your uploaded filename if different -->
+        <img src="smarthub.jpg" alt="Iyata Anthony">
+        <div>
+          <h1>Iyata Anthony</h1>
+          <div style="color:rgba(255,255,255,0.95);font-weight:600">Researcher · Podcaster · Product-minded</div>
+        </div>
       </div>
-  </div>
 
-  <nav aria-label="Main navigation">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#podcast">Podcast</a>
-    <a href="#cv">CV</a>
-
-    <!-- Work Experience with CV sub-section -->
-    <div class="dropdown">
-      <a href="#work">Work Experience ▾</a>
-      <div class="dropdown-content">
-        <a href="academic-cv.pdf">Academic CV</a>
-        <a href="professional-cv.pdf">Professional CV</a>
+      <!-- top quick actions -->
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="#contact" style="background:rgba(255,255,255,0.12);color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700">Contact</a>
+        <a href="#" id="downloadCvBtn" style="border:1px solid rgba(255,255,255,0.45);color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700">Download CV</a>
       </div>
     </div>
 
-    <a href="#skills">Technical Skills</a>
-    <a href="#business">Business</a>
-    <a href="#leadership">Leadership</a>
-    <a href="#licenses">Licenses</a>
-    <a href="#courses">Courses</a>
-    <a href="#volunteering">Volunteering</a>
-    <a href="#honors">Honors</a>
-    <a href="#blog">Blog</a>
-    <a href="#hobbies">Hobbies</a>
+    <!-- hero & nav chips -->
+    <div class="hero">
+      <h2>Iyata Anthony</h2>
+      <p style="max-width:720px;margin:auto">Researcher · Podcaster · Product-minded professional</p>
 
-    <!-- MOVED to navigation -->
-    <a href="#contact">Contact</a>
-    <a href="#cv" class="download">Download CV</a>
-  </nav>
-</header>
+      <nav class="nav-chips" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Work</a>
+        <a href="#skills">Technical Skills</a>
+        <a href="#business">Business</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#licenses">Licenses</a>
+        <a href="#courses">Courses</a>
+        <a href="#volunteering">Volunteering</a>
+        <a href="#honors">Honors</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#contact">Contact</a>
+        <a href="#cv" style="border:1px solid rgba(255,255,255,0.4)">CV</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
 
-  <main class="container">
-    <section id="home" class="card">
-      <h2>Home</h2>
-      <p>Hello — I'm <strong>Iyata Anthony</strong>. I build research-driven products, host a podcast about technology and leadership, and help organisations turn ideas into practical solutions. Welcome to my portfolio.</p>
+    <!-- Home (optional mirrored hero content) -->
+    <section id="home" class="card" aria-label="Home">
+      <h2 class="section-title">Home</h2>
+      <p class="lead">Welcome — I am an energy & IT professional focused on energy systems, EHS, and digital transformation in the energy sector. Explore my experience, research, and work below.</p>
     </section>
 
+    <!-- About -->
     <section id="about" class="card">
-      <h2>About</h2>
+      <h2 class="section-title">About</h2>
+      <p class="lead">Short bio: energy systems researcher & IT strategist. (Shorten or expand here.)</p>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="card">
+      <h2 class="section-title">Education</h2>
+      <ul>
+        <li>Carnegie Mellon University Africa — M.Sc., Electrical & Computer Engineering — 2025</li>
+        <li>Babcock University — B.Sc., Computer Science — 2017</li>
+      </ul>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="card">
+      <h2 class="section-title">Research</h2>
+
       <div class="two-col">
         <div class="col">
-          <p>Information technology experience working across the Energy (Oil and Gas), Financial Technology (FinTech), Agricultural Technology (AgriTech) and Educational Technology (EduTech) industries.
-
-I also like to research and conduct independent studies in Operations Research, Enterprise Architecture and Business Process Management.
-          <p class="meta">Location: Nigeria • Email: yourname@example.com</p>
-        </div>
-        <div class="col">
-          <h3>Quick facts</h3>
+          <h3 style="margin-top:0">Published Works</h3>
           <ul>
-            <li>Research interests: AI for development, user-centred design, product analytics</li>
-            <li>Podcast host on technology & leadership</li>
-            <li>Available for consulting and speaking engagements</li>
+            <li>Publication title — <a href="#" target="_blank">View</a></li>
+            <li>Publication title — <a href="#" target="_blank">View</a></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h3 style="margin-top:0">Ongoing Work</h3>
+          <ul>
+            <li>Work title — <a href="#" target="_blank">Details</a></li>
+            <li>Work title — <a href="#" target="_blank">Details</a></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="research" class="card">
-      <h2>Research</h2>
-      <p>My research work explores how technology impacts organisations and communities. Below are highlights and ongoing areas of interest.</p>
-      <ul>
-        <li>Ongoing study: Digital adoption patterns in small businesses</li>
-        <li>Completed: Usability study for mobile-first financial services</li>
-        <li>Methods: mixed methods, interviews, surveys, A/B testing</li>
-      </ul>
+    <!-- Work + CV subsection -->
+    <section id="experience" class="card">
+      <h2 class="section-title">Work Experience</h2>
+      <p class="lead">Summary of professional roles and achievements.</p>
 
-      <h3>Published works</h3>
-      <ul>
-        <li>Product Researcher — Company A (Dates)</li>
-        <li>Consultant — Company B (Dates)</li>
-      </ul>
+      <!-- logos grid (clickable) -->
+      <div class="work-grid" style="margin-top:12px">
+        <!-- Wrap each logo with an <a> for clickable link; replace href="#" with actual company URL if you have it -->
+        <a class="work-card company" href="#" target="_blank" title="SmartHub">
+          <img src="smarthub.jpg" alt="SmartHub logo">
+          <div><strong>SmartHub</strong></div>
+        </a>
 
-      <h3>Ongoing works</h3>
-      <ul>
-        <li>MSc / PhD — University Name (Dates)</li>
-        <li>BSc — University Name (Dates)</li>
-      </ul>
+        <a class="work-card company" href="#" target="_blank" title="GTech">
+          <img src="gtech.png" alt="GTech logo">
+          <div><strong>GTech</strong></div>
+        </a>
+
+        <a class="work-card company" href="#" target="_blank" title="Shield">
+          <img src="shield.png" alt="Shield logo">
+          <div><strong>Shield</strong></div>
+        </a>
+
+        <a class="work-card company" href="#" target="_blank" title="Zane">
+          <img src="zane.jpeg" alt="Zane logo">
+          <div><strong>Zane</strong></div>
+        </a>
+
+        <a class="work-card company" href="#" target="_blank" title="CMU Africa">
+          <img src="cmu.jpeg" alt="CMU Africa">
+          <div><strong>CMU Africa</strong></div>
+        </a>
+
+        <a class="work-card company" href="#" target="_blank" title="NNPC">
+          <img src="nnpc.png" alt="NNPC">
+          <div><strong>NNPC</strong></div>
+        </a>
+
+        <a class="work-card company" href="#" target="_blank" title="KCRC">
+          <img src="kcrc.png" alt="KCRC">
+          <div><strong>KCRC</strong></div>
+        </a>
+      </div>
+
+      <!-- CV subsection -->
+      <div style="margin-top:18px">
+        <h3 style="margin:0 0 8px">Curriculum Vitae</h3>
+        <p class="lead" style="margin:0 0 12px">Preview CVs directly on this page.</p>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="card" onclick="openPdf('professional_cv.pdf','Professional CV')" style="cursor:pointer;border-radius:10px;padding:10px 14px;border:1px solid #e6e8f0;background:#fff">Preview Professional CV</button>
+
+          <button class="card" onclick="openPdf('certificates.pdf','Certifications')" style="cursor:pointer;border-radius:10px;padding:10px 14px;border:1px solid #e6e8f0;background:#fff">Preview Certifications</button>
+
+          <!-- Academic CV placeholder -->
+          <button class="card" onclick="openPdfPlaceholder()" style="cursor:pointer;border-radius:10px;padding:10px 14px;border:1px solid #e6e8f0;background:#fff">Academic CV (Upload later)</button>
+        </div>
+      </div>
     </section>
 
-    <section id="podcast" class="card">
-      <h2>Podcast</h2>
-      <p>I host a podcast discussing tech, leadership and entrepreneurship. New episodes are released regularly.</p>
-      <p class="meta">Listen on: Apple Podcasts / Spotify / YouTube</p>
-      <div class="line"></div>
-      <h3>Recent episodes</h3>
-      <ul>
-        <li>Episode 12 — Building teams that ship</li>
-        <li>Episode 11 — Research for product managers</li>
-      </ul>
-    </section>
-
-    <section id="cv" class="card">
-      <h2>CV</h2>
-      <p>Below are two CV sections — industry and education. You can download a full PDF using the button below.</p>
-      <a class="download" href="#" onclick="alert('Please add your CV PDF to the repository and link it here.')">Download full CV (PDF)</a>
-      <div class="line"></div>
-
-      <h3>Industry CV</h3>
-      <ul>
-        <li>Product Researcher — Company A (Dates)</li>
-        <li>Consultant — Company B (Dates)</li>
-      </ul>
-
-      <h3>Education & Academic CV</h3>
-      <ul>
-        <li>MSc / PhD — University Name (Dates)</li>
-        <li>BSc — University Name (Dates)</li>
-      </ul>
-    </section>
-
-    <section id="work" class="card">
-      <h2>Work Experience</h2>
-      <p>Summary of professional roles and achievements.</p>
-      <ul>
-        <li><strong>Role — Company</strong>: Short description and key achievements.</li>
-        <li><strong>Role — Company</strong>: Short description and key achievements.</li>
-      </ul>
-    </section>
-
-
+    <!-- Technical Skills -->
     <section id="skills" class="card">
-      <h2>Technical Skills</h2>
-      <section id="skills" class="card">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="lead">Key skills and technical areas I work in.</p>
+      <div class="skills" style="margin-top:12px">
+        <!-- Replace or re-order tags as you like -->
+        <span class="skill">EHS Engineering</span>
+        <span class="skill">Health and Safety Training</span>
+        <span class="skill">Lithium-ion Batteries</span>
+        <span class="skill">Safety Management Systems</span>
+        <span class="skill">Environment, Health, Safety (EHS)</span>
+        <span class="skill">Technical Support</span>
+        <span class="skill">ITIL</span>
+        <span class="skill">Data Quality</span>
+        <span class="skill">Quality Assurance</span>
+        <span class="skill">English</span>
+        <span class="skill">Analytical Skills</span>
+        <span class="skill">Records Management</span>
+        <span class="skill">Computer Science</span>
+        <span class="skill">Debate</span>
+        <span class="skill">Public Speaking</span>
+        <span class="skill">Operations Research</span>
+        <span class="skill">Microsoft Office</span>
+        <span class="skill">Leadership</span>
+        <span class="skill">Management</span>
+        <span class="skill">Data Science</span>
+        <span class="skill">Python</span>
+        <span class="skill">Research Skills</span>
+      </div>
+    </section>
 
-
-    <span class="skill">EHS Engineering,</span>
-    <span class="skill">Health and Safety Training,</span>
-    <span class="skill">Lithium-ion Batteries,</span>
-    <span class="skill">Safety Management Systems,</span>
-    <span class="skill">Environment, Health, and Safety (EHS),</span>
-    <span class="skill">Technical Support,</span>
-    <span class="skill">ITIL,</span>
-    <span class="skill">Data Quality,</span>
-    <span class="skill">Quality Assurance,</span>
-    <span class="skill">English,</span>
-    <span class="skill">Analytical Skills,</span>
-    <span class="skill">Records Management,</span>
-    <span class="skill">Computer Science,</span>
-    <span class="skill">Debate,</span>
-    <span class="skill">Public Speaking,</span>
-    <span class="skill">Operations Research,</span>
-    <span class="skill">Microsoft Office,</span>
-    <span class="skill">Leadership,</span>
-    <span class="skill">Management,</span>
-    <span class="skill">Data Science,</span>
-    <span class="skill">Python (Programming Language),</span>
-    <span class="skill">Research Skills,</span>
-
-  </div>
-</section>
-
-
+    <!-- Business -->
     <section id="business" class="card">
-      <h2>Business & Management</h2>
+      <h2 class="section-title">Business &amp; Management</h2>
       <p>Experience leading small teams, coordinating projects, and driving business outcomes.</p>
       <ul>
         <li>Led cross-functional projects to launch product features</li>
@@ -228,63 +352,117 @@ I also like to research and conduct independent studies in Operations Research, 
       </ul>
     </section>
 
+    <!-- Leadership -->
     <section id="leadership" class="card">
-      <h2>Leadership Experience</h2>
+      <h2 class="section-title">Leadership Experience</h2>
       <p>Roles where I managed people, mentored juniors, and guided strategy.</p>
-    </section>
-
-    <section id="licenses" class="card">
-      <h2>Licenses & Certifications</h2>
       <ul>
-        <li>Certification name — Issuer (Year)</li>
-        <li>Certification name — Issuer (Year)</li>
+        <li>Mentored junior staff</li>
+        <li>Guided strategic decisions and team direction</li>
       </ul>
     </section>
 
+    <!-- Licenses & Courses & Volunteering & Honors -->
+    <section id="licenses" class="card">
+      <h2 class="section-title">Licenses & Certifications</h2>
+      <p class="lead">Click "Preview Certifications" in the Work / CV section to view uploaded certificates.</p>
+    </section>
+
     <section id="courses" class="card">
-      <h2>Courses</h2>
+      <h2 class="section-title">Courses</h2>
       <ul>
-        <li>Course name — Platform/Institution (Year)</li>
-        <li>Course name — Platform/Institution (Year)</li>
+        <li>Course / Provider — Year</li>
       </ul>
     </section>
 
     <section id="volunteering" class="card">
-      <h2>Volunteering</h2>
-      <p>Community and volunteer work, organizations, and roles.</p>
+      <h2 class="section-title">Volunteering</h2>
+      <p>Community and volunteer work, organizations and roles.</p>
     </section>
 
     <section id="honors" class="card">
-      <h2>Honors & Awards</h2>
+      <h2 class="section-title">Honors & Awards</h2>
       <ul>
-        <li>Award name — Year</li>
         <li>Award name — Year</li>
       </ul>
     </section>
 
-    <section id="blog" class="card">
-      <h2>Blog</h2>
-      <p>Latest writing and articles.</p>
-      <ul>
-        <li><a href="#">Article: How to structure research for product teams</a></li>
-        <li><a href="#">Article: Podcasting tips for beginners</a></li>
-      </ul>
+    <!-- Hobbies -->
+    <section id="hobbies" class="card">
+      <h2 class="section-title">Hobbies</h2>
+      <p>Photography, reading, mentoring, public speaking (example).</p>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>If you want to get in touch:</p>
-      <p><strong>WhatsApp:</strong> +234 902 106 9838 <br>
-      <strong>Email:</strong> iyataanthony@gmail.com</p>
-      <p class="meta"></p>
+      <h2 class="section-title">Contact</h2>
+      <p>Email: <a href="mailto:adikpeiyata@gmail.com">adikpeiyata@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/iyata-adikpe/" target="_blank">iyata-adikpe</a></p>
     </section>
+
   </main>
 
   <footer>
-    <div class="container">
-      <p>© 2025 Linestech — Built with GitHub Pages</p>
-      <p class="meta">Made with care — contact me to customise this further.</p>
-    </div>
+    © <span id="year"></span> Iyata Anthony — Built with GitHub Pages
   </footer>
+
+  <!-- PDF preview modal -->
+  <div id="pdfModal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content" role="document">
+      <div class="modal-header">
+        <strong id="modalTitle">Preview</strong>
+        <div>
+          <button onclick="closeModal()" style="padding:8px 12px;border-radius:8px;border:0;background:#efefef;cursor:pointer">Close</button>
+        </div>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- iframe will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // show current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Open a PDF file in the modal (filename must exist in the same folder)
+    function openPdf(filename, title){
+      const modal = document.getElementById('pdfModal');
+      const body = document.getElementById('modalBody');
+      const t = document.getElementById('modalTitle');
+      t.textContent = title || 'Preview';
+      // Basic encoding for spaces/special chars
+      const encoded = encodeURI(filename);
+      // set iframe
+      body.innerHTML = '<iframe src="' + encoded + '"></iframe>';
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+    }
+
+    function openPdfPlaceholder(){
+      alert('The Academic CV placeholder hasn\\'t been uploaded yet. Upload your academic CV as "academic_cv.pdf" in the site root and then update this link (or click the "Preview" button again).');
+    }
+
+    function closeModal(){
+      const modal = document.getElementById('pdfModal');
+      const body = document.getElementById('modalBody');
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden','true');
+      body.innerHTML = ''; // remove iframe to stop the PDF
+    }
+
+    // Download button behaviour: offer download or preview
+    document.getElementById('downloadCvBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      // If you prefer auto download, use window.location = 'professional_cv.pdf';
+      openPdf('professional_cv.pdf','Professional CV');
+    });
+
+    // Close modal when clicking outside content
+    document.getElementById('pdfModal').addEventListener('click', function(e){
+      if(e.target === this) closeModal();
+    });
+  </script>
+
 </body>
 </html>
