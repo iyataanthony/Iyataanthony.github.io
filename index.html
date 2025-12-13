@@ -1,490 +1,279 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Iyata Anthony — Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iyata Anthony – Portfolio</title>
 
-  <!--
-    IMPORTANT:
-    - Upload your PDF files and images to the same folder as this index.html (root of the repo).
-    - Required filenames used in this HTML (change them here if you use different names):
-        professional_cv.pdf
-        certificates.pdf
-        smarthub.jpg, gtech.png, shield.png, zane.jpeg, cmu.jpeg, nnpc.png, kcrc.png
-    - Academic CV is left as a placeholder. When you upload it, change the '#academic' preview src or filename.
-  -->
+<style>
+:root{
+  --accent:#5b6cff;
+  --accent2:#7b88ff;
+  --bg:#f5f6fb;
+  --card:#ffffff;
+}
 
-  <style>
-    :root{
-      --accent:#6f7bff;
-      --accent-2:#4a4aff;
-      --muted:#6b7280;
-      --card-bg:#ffffff;
-      --page-bg:#f5f6fb;
-      --glass: rgba(255,255,255,0.85);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Helvetica Neue", Arial;
-      background:var(--page-bg);
-      color:#111827;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, sans-serif;
+  background:var(--bg);
+  color:#111827;
+}
 
-    /* Header (reduced hero height) */
-    .site-header{
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:#fff;
-      padding:36px 20px 40px;
-      border-bottom-left-radius:28px;
-      border-bottom-right-radius:28px;
-    }
-    .header-inner{
-      max-width:1000px;
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      gap:24px;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-    .brand img{width:72px;height:72px;border-radius:999px;object-fit:cover;border:6px solid rgba(255,255,255,0.15)}
-    .brand h1{margin:0;font-size:22px;font-weight:700}
-    .hero{
-      text-align:center;
-      padding:18px 20px 8px;
-    }
-    .hero h2{font-size:28px;margin:12px 0 6px;color:#fff}
-    .hero p{margin:0;color:rgba(255,255,255,0.95)}
+/* HEADER */
+header{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  text-align:center;
+  padding:40px 20px 30px;
+  border-bottom-left-radius:40px;
+  border-bottom-right-radius:40px;
+}
+.profile-photo{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid rgba(255,255,255,.9);
+}
+h1{margin:15px 0 5px}
+.subtitle{opacity:.95}
 
-    /* Nav chips like screenshot but responsive */
-    .nav-chips{
-      display:flex;
-      gap:18px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-    .nav-chips a{
-      color:white;
-      text-decoration:none;
-      padding:10px 14px;
-      border-radius:8px;
-      font-weight:600;
-      background:transparent;
-      opacity:.95;
-      transition:transform .18s ease, background .18s;
-    }
-    .nav-chips a:hover{transform:translateY(-4px); background: rgba(255,255,255,0.06)}
+/* LAYOUT */
+section{
+  max-width:1100px;
+  margin:40px auto;
+  padding:0 20px;
+}
+.card{
+  background:var(--card);
+  padding:24px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  margin-bottom:25px;
+}
+h2{color:var(--accent)}
 
-    /* Main content */
-    main{max-width:1000px;margin:28px auto;padding:0 16px;}
+/* LOGOS */
+.logo{
+  width:60px;
+  height:auto;
+  transition:.3s;
+}
+.logo:hover{
+  transform:scale(1.15);
+}
 
-    /* Card style */
-    .card{
-      background:var(--card-bg);
-      border-radius:16px;
-      padding:18px;
-      box-shadow:0 10px 30px rgba(13,18,25,0.06);
-      margin-bottom:20px;
-    }
-    h2.section-title{
-      color:var(--accent-2);
-      font-size:24px;
-      margin:0 0 14px;
-    }
-    p.lead{color:var(--muted);margin:0 0 12px}
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
 
-    /* Two-column where needed */
-    .two-col{display:flex;gap:20px;flex-wrap:wrap}
-    .col{flex:1;min-width:240px}
+/* SKILLS */
+.skill{
+  display:inline-block;
+  background:#eef2ff;
+  padding:8px 14px;
+  border-radius:20px;
+  margin:6px;
+}
 
-    /* Skills chips */
-    .skills{display:flex;flex-wrap:wrap;gap:10px}
-    .skills .skill{
-      background:#eef2ff;
-      padding:8px 12px;
-      border-radius:12px;
-      font-weight:600;
-      color:#111827;
-      box-shadow:inset 0 -1px 0 rgba(0,0,0,0.02);
-    }
+/* COLLAGE */
+.collage{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+}
+.collage img{
+  width:100%;
+  border-radius:12px;
+}
 
-    /* Work icons grid */
-    .work-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
-      gap:18px;
-    }
-    .work-card{
-      text-align:center;
-      padding:16px;
-      border-radius:12px;
-      border:1px solid rgba(14,22,48,0.04);
-      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
-      transition:transform .22s ease, box-shadow .22s ease;
-    }
-    .work-card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(13,18,25,0.08)}
-    .work-card img{width:64px;height:64px;object-fit:contain;margin-bottom:8px}
-
-    /* Footer */
-    footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
-
-    /* PDF modal */
-    .modal{
-      position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999;
-    }
-    .modal.show{display:flex}
-    .modal-content{
-      background:#fff;border-radius:10px;width:95%;max-width:1000px;height:85vh;overflow:hidden;display:flex;flex-direction:column;
-    }
-    .modal-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #eee}
-    .modal-body{flex:1}
-    .modal-body iframe{width:100%;height:100%;border:0;display:block}
-
-    /* small screens */
-    @media(max-width:720px){
-      .hero h2{font-size:22px}
-      .brand img{width:84px;height:84px}
-      .nav-chips{gap:10px}
-      .work-card img{width:56px;height:56px}
-    }
-  </style>
+/* PDF PREVIEW */
+iframe{
+  width:100%;
+  height:500px;
+  border-radius:12px;
+  border:none;
+}
+</style>
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
-        <!-- Your profile image: replace src with your uploaded filename if different -->
-        <img src="smarthub.jpg" alt="Iyata Anthony">
-        <div>
-          <h1>Iyata Anthony</h1>
-          <div style="color:rgba(255,255,255,0.95);font-weight:600">Researcher · Podcaster · Product-minded</div>
-        </div>
-      </div>
+<header>
+  <img src="1727691947865.jpg" class="profile-photo" alt="Iyata Anthony">
+  <h1>Iyata Anthony</h1>
+  <div class="subtitle">Researcher • Podcaster • Product-minded Professional</div>
+</header>
 
-      <!-- top quick actions -->
-      <div style="display:flex;gap:12px;align-items:center">
-        <a href="#contact" style="background:rgba(255,255,255,0.12);color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700">Contact</a>
-        <a href="#" id="downloadCvBtn" style="border:1px solid rgba(255,255,255,0.45);color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700">Download CV</a>
-      </div>
-    </div>
-
-    <!-- hero & nav chips -->
-    <div class="hero">
-      <h2>Iyata Anthony</h2>
-      <p style="max-width:720px;margin:auto">Researcher · Podcaster · Product-minded professional</p>
-
-      <nav class="nav-chips" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#research">Research</a>
-        <a href="#experience">Work</a>
-        <a href="#skills">Technical Skills</a>
-        <a href="#business">Business</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#licenses">Licenses</a>
-        <a href="#courses">Courses</a>
-        <a href="#volunteering">Volunteering</a>
-        <a href="#honors">Honors</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#contact">Contact</a>
-        <a href="#cv" style="border:1px solid rgba(255,255,255,0.4)">CV</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- Home (optional mirrored hero content) -->
-    <section id="home" class="card" aria-label="Home">
-      <h2 class="section-title">Home</h2>
-      <p class="lead">Welcome — I am an energy & IT professional focused on energy systems, EHS, and digital transformation in the energy sector. Explore my experience, research, and work below.</p>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="card">
-      <h2 class="section-title">About</h2>
-      <p class="lead">Short bio: energy systems researcher & IT strategist. (Shorten or expand here.)</p>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="card">
-      <h2 class="section-title">Education</h2>
-      <ul>
-        <li>Carnegie Mellon University Africa — M.Sc., Electrical & Computer Engineering — 2025</li>
-        <li>Babcock University — B.Sc., Computer Science — 2017</li>
-      </ul>
-    </section>
-
-    <!-- Research -->
-    <section id="research" class="card">
-      <h2 class="section-title">Research</h2>
-
-      <div class="two-col">
-        <div class="col">
-          <h3 style="margin-top:0">Published Works</h3>
-          <ul>
-            <li>Publication title — <a href="#" target="_blank">View</a></li>
-            <li>Publication title — <a href="#" target="_blank">View</a></li>
-          </ul>
-        </div>
-
-        <div class="col">
-          <h3 style="margin-top:0">Ongoing Work</h3>
-          <ul>
-            <li>Work title — <a href="#" target="_blank">Details</a></li>
-            <li>Work title — <a href="#" target="_blank">Details</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Work + CV subsection -->
-    <section id="experience" class="card">
-      <h2 class="section-title">Work Experience</h2>
-      <p class="lead">Summary of professional roles and achievements.</p>
-
-      <!-- logos grid (clickable) -->
-      <div class="work-grid" style="margin-top:12px">
-        <!-- Wrap each logo with an <a> for clickable link; replace href="#" with actual company URL if you have it -->
-        <a class="work-card company" href="https://smarthub.com" target="_blank" title="SmartHub">
-    <img src="smarthub.png" alt="SmartHub">
-    <div><strong>SmartHub</strong></div>
-</a>
-
-
-        <a class="work-card company" href="https://gtech.com" target="_blank" title="GTech">
-    <img src="gtech.png" alt="GTech">
-    <div><strong>GTech</strong></div>
-</a>
-
-
-        <a class="work-card company" href="https://shield.com" target="_blank" title="Shield">
-    <img src="shield.png" alt="Shield">
-    <div><strong>Shield</strong></div>
-</a>
-
-
-       <a class="work-card company" href="https://zane.com" target="_blank" title="Zane">
-    <img src="zane.png" alt="Zane">
-    <div><strong>Zane</strong></div>
-</a>
- 
-
-        <a class="work-card company" href="https://www.africa.engineering.cmu.edu" target="_blank" title="CMU Africa">
-    <img src="cmu.png" alt="CMU Africa">
-    <div><strong>CMU Africa</strong></div>
-</a>
-
-
-       <a class="work-card company" href="https://www.nnpcgroup.com" target="_blank" title="NNPC">
-    <img src="nnpc.png" alt="NNPC">
-    <div><strong>NNPC</strong></div>
-</a>
-        
-
-<a class="work-card company" href="https://kcrc.com" target="_blank" title="KCRC">
-    <img src="kcrc.png" alt="KCRC">
-    <div><strong>KCRC</strong></div>
-</a>
-
-      </div>
-<div class="company-card">
-  <img src="nnpc.png" alt="NNPC" class="company-logo">
-
-  <div class="company-content">
-    <div class="job-row">
-      <h3 class="job-title">Information Technology Strategist</h3>
-      <div class="job-meta">Apr 2023 - Present • 2 yrs 9 mos</div>
-    </div>
-
-    <div class="job-row">
-      <h3 class="job-title">Business and Information Systems Architect</h3>
-      <div class="job-meta">May 2020 - Mar 2023 • 2 yrs 11 mos</div>
-    </div>
+<!-- ABOUT -->
+<section>
+  <div class="card">
+    <h2>About</h2>
+    <p>Energy & IT professional with experience spanning research, enterprise systems, data science, and emerging energy technologies.</p>
   </div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+<h2>Education</h2>
+<div class="grid">
+
+<div class="card">
+<a href="http://www.cmu.edu/africa" target="_blank">
+<img src="cmu.jpeg" class="logo">
+</a>
+<p><strong>Carnegie Mellon University Africa</strong><br>
+MSc Electrical & Computer Engineering<br>
+2024 – 2025 | GPA: 3.85/4.0</p>
 </div>
 
-      <!-- CV subsection -->
-      <div style="margin-top:18px">
-        <h3 style="margin:0 0 8px">Curriculum Vitae</h3>
-        <p class="lead" style="margin:0 0 12px">Preview CVs directly on this page.</p>
+<div class="card">
+<a href="https://www.wqu.edu" target="_blank">
+<img src="smarthub.jpg" class="logo">
+</a>
+<p><strong>WorldQuant University</strong><br>
+Scientific Computing & Python (Honors)</p>
+</div>
 
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <button class="card" onclick="openPdf('professional_cv.pdf','Professional CV')" style="cursor:pointer;border-radius:10px;padding:10px 14px;border:1px solid #e6e8f0;background:#fff">Preview Professional CV</button>
+<div class="card">
+<a href="https://www.babcock.edu.ng" target="_blank">
+<img src="shield.png" class="logo">
+</a>
+<p><strong>Babcock University</strong><br>
+BSc Computer Science<br>
+First Class (4.6/5.0)</p>
+</div>
 
-          <button class="card" onclick="openPdf('certificates.pdf','Certifications')" style="cursor:pointer;border-radius:10px;padding:10px 14px;border:1px solid #e6e8f0;background:#fff">Preview Certifications</button>
+</div>
+</section>
 
-          <!-- Academic CV placeholder -->
-          <button class="card" onclick="openPdfPlaceholder()" style="cursor:pointer;border-radius:10px;padding:10px 14px;border:1px solid #e6e8f0;background:#fff">Academic CV (Upload later)</button>
-        </div>
-      </div>
-    </section>
+<!-- RESEARCH -->
+<section>
+<div class="card">
+<h2>Research</h2>
+<strong>Published Works</strong>
+<ul>
+<li>Operations Research in Nigeria – AJOR (2018)</li>
+<li>Enterprise Architecture Models – EAPJ (2024)</li>
+</ul>
+<strong>Ongoing Work</strong>
+<ul>
+<li>Battery storage from EV & E-waste</li>
+</ul>
+</div>
+</section>
 
-    <!-- Technical Skills -->
-    <section id="skills" class="card">
-      <h2 class="section-title">Technical Skills</h2>
-      <p class="lead">Key skills and technical areas I work in.</p>
-      <div class="skills" style="margin-top:12px">
-        <!-- Replace or re-order tags as you like -->
-        <span class="skill">EHS Engineering</span>
-        <span class="skill">Health and Safety Training</span>
-        <span class="skill">Lithium-ion Batteries</span>
-        <span class="skill">Safety Management Systems</span>
-        <span class="skill">Environment, Health, Safety (EHS)</span>
-        <span class="skill">Technical Support</span>
-        <span class="skill">ITIL</span>
-        <span class="skill">Data Quality</span>
-        <span class="skill">Quality Assurance</span>
-        <span class="skill">English</span>
-        <span class="skill">Analytical Skills</span>
-        <span class="skill">Records Management</span>
-        <span class="skill">Computer Science</span>
-        <span class="skill">Debate</span>
-        <span class="skill">Public Speaking</span>
-        <span class="skill">Operations Research</span>
-        <span class="skill">Microsoft Office</span>
-        <span class="skill">Leadership</span>
-        <span class="skill">Management</span>
-        <span class="skill">Data Science</span>
-        <span class="skill">Python</span>
-        <span class="skill">Research Skills</span>
-      </div>
-    </section>
+<!-- WORK EXPERIENCE -->
+<section>
+<h2>Work Experience</h2>
 
-    <!-- Business -->
-    <section id="business" class="card">
-      <h2 class="section-title">Business &amp; Management</h2>
-      <p>Experience leading small teams, coordinating projects, and driving business outcomes.</p>
-      <ul>
-        <li>Led cross-functional projects to launch product features</li>
-        <li>Built partnerships with external stakeholders</li>
-      </ul>
-    </section>
+<div class="card">
+<a href="http://www.kcrc.rw" target="_blank">
+<img src="kcrc.png" class="logo">
+</a>
+<p><strong>Research Assistant</strong> – Kigali Collaborative Research Centre</p>
+</div>
 
-    <!-- Leadership -->
-    <section id="leadership" class="card">
-      <h2 class="section-title">Leadership Experience</h2>
-      <p>Roles where I managed people, mentored juniors, and guided strategy.</p>
-      <ul>
-        <li>Mentored junior staff</li>
-        <li>Guided strategic decisions and team direction</li>
-      </ul>
-    </section>
+<div class="card">
+<a href="http://www.nnpcgroup.com" target="_blank">
+<img src="nnpc.png" class="logo">
+</a>
+<p><strong>IT Strategist / Architect</strong> – NNPC Limited</p>
+</div>
 
-    <!-- Licenses & Courses & Volunteering & Honors -->
-    <section id="licenses" class="card">
-      <h2 class="section-title">Licenses & Certifications</h2>
-      <p class="lead">Click "Preview Certifications" in the Work / CV section to view uploaded certificates.</p>
-    </section>
+<div class="card">
+<a href="http://www.cmu.edu/africa" target="_blank">
+<img src="cmu.jpeg" class="logo">
+</a>
+<p><strong>IT Support Officer</strong> – CMU Africa</p>
+</div>
 
-    <section id="courses" class="card">
-      <h2 class="section-title">Courses</h2>
-      <ul>
-        <li>Course / Provider — Year</li>
-      </ul>
-    </section>
+<div class="card">
+<a href="http://www.zcp.com.ng" target="_blank">
+<img src="zane.jpeg" class="logo">
+</a>
+<p><strong>Operations Officer</strong> – Zane Commodity Platform</p>
+</div>
 
-    <section id="volunteering" class="card">
-      <h2 class="section-title">Volunteering</h2>
-      <p>Community and volunteer work, organizations and roles.</p>
-    </section>
+<div class="card">
+<a href="https://www.mathevia.co.uk" target="_blank">
+<img src="shield.png" class="logo">
+</a>
+<p><strong>Tutor</strong> – Mathevia</p>
+</div>
 
-    <section id="honors" class="card">
-      <h2 class="section-title">Honors & Awards</h2>
-      <ul>
-        <li>Award name — Year</li>
-      </ul>
-    </section>
+<div class="card">
+<a href="https://www.gladepay.com" target="_blank">
+<img src="gtech.png" class="logo">
+</a>
+<p><strong>Software Developer</strong> – GladePay</p>
+</div>
 
-    <!-- Hobbies -->
-    <section id="hobbies" class="card">
-      <h2 class="section-title">Hobbies</h2>
-      <p>Photography, reading, mentoring, public speaking (example).</p>
-    </section>
+</section>
 
-    <!-- Contact -->
-    <section id="contact" class="card">
-      <h2 class="section-title">Contact</h2>
-      <p>Email: <a href="mailto:adikpeiyata@gmail.com">adikpeiyata@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/iyata-adikpe/" target="_blank">iyata-adikpe</a></p>
-    </section>
+<!-- SKILLS -->
+<section>
+<h2>Technical Skills</h2>
+<div class="card">
+<span class="skill">Python</span>
+<span class="skill">Data Science</span>
+<span class="skill">Lithium-ion Batteries</span>
+<span class="skill">EHS</span>
+<span class="skill">ITIL</span>
+<span class="skill">Operations Research</span>
+<span class="skill">Leadership</span>
+</div>
+</section>
 
-  </main>
+<!-- POST -->
+<section>
+<h2>Post</h2>
+<div class="card">
+<p>CEPREC Rwanda visit to Volkswagen GenFarm Project – advancing Africa’s circular energy transition.</p>
+<div class="collage">
+<img src="cerpec1.jpg">
+<img src="cerpec2.jpg">
+<img src="cerpec3.jpg">
+<img src="cerpec4.jpg">
+<img src="cerpec5.jpg">
+</div>
+</div>
+</section>
 
-  <footer>
-    © <span id="year"></span> Iyata Anthony — Built with GitHub Pages
-  </footer>
+<!-- CV -->
+<section>
+<h2>CV</h2>
 
-  <!-- PDF preview modal -->
-  <div id="pdfModal" class="modal" role="dialog" aria-hidden="true">
-    <div class="modal-content" role="document">
-      <div class="modal-header">
-        <strong id="modalTitle">Preview</strong>
-        <div>
-          <button onclick="closeModal()" style="padding:8px 12px;border-radius:8px;border:0;background:#efefef;cursor:pointer">Close</button>
-        </div>
-      </div>
-      <div class="modal-body" id="modalBody">
-        <!-- iframe will be injected here -->
-      </div>
-    </div>
-  </div>
+<div class="card">
+<h3>Professional CV</h3>
+<iframe src="professional_cv.pdf"></iframe>
+</div>
 
-  <script>
-    // show current year
-    document.getElementById('year').textContent = new Date().getFullYear();
+<div class="card">
+<h3>Certifications</h3>
+<iframe src="certificates.pdf"></iframe>
+</div>
 
-    // Open a PDF file in the modal (filename must exist in the same folder)
-    function openPdf(filename, title){
-      const modal = document.getElementById('pdfModal');
-      const body = document.getElementById('modalBody');
-      const t = document.getElementById('modalTitle');
-      t.textContent = title || 'Preview';
-      // Basic encoding for spaces/special chars
-      const encoded = encodeURI(filename);
-      // set iframe
-      body.innerHTML = '<iframe src="' + encoded + '"></iframe>';
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden','false');
-    }
+<div class="card">
+<h3>Academic CV</h3>
+<p>Coming soon</p>
+</div>
 
-    function openPdfPlaceholder(){
-      alert('The Academic CV placeholder hasn\\'t been uploaded yet. Upload your academic CV as "academic_cv.pdf" in the site root and then update this link (or click the "Preview" button again).');
-    }
+</section>
 
-    function closeModal(){
-      const modal = document.getElementById('pdfModal');
-      const body = document.getElementById('modalBody');
-      modal.classList.remove('show');
-      modal.setAttribute('aria-hidden','true');
-      body.innerHTML = ''; // remove iframe to stop the PDF
-    }
-
-    // Download button behaviour: offer download or preview
-    document.getElementById('downloadCvBtn').addEventListener('click', function(e){
-      e.preventDefault();
-      // If you prefer auto download, use window.location = 'professional_cv.pdf';
-      openPdf('professional_cv.pdf','Professional CV');
-    });
-
-    // Close modal when clicking outside content
-    document.getElementById('pdfModal').addEventListener('click', function(e){
-      if(e.target === this) closeModal();
-    });
-  </script>
+<!-- CONTACT -->
+<section>
+<div class="card">
+<h2>Contact</h2>
+<p>Email: <a href="mailto:adikpeiyata@gmail.com">adikpeiyata@gmail.com</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/iyata-adikpe" target="_blank">View Profile</a></p>
+</div>
+</section>
 
 </body>
 </html>
