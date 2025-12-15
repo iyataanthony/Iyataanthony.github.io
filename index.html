@@ -146,6 +146,69 @@ footer{
   padding:30px;
   color:#555;
 }
+  .li-cert-wrap{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+
+.li-cert{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+
+.li-cert-thumb img{
+  width:120px;
+  border-radius:6px;
+  cursor:pointer;
+  border:1px solid #e0e0e0;
+  transition:transform .25s, box-shadow .25s;
+}
+
+.li-cert-thumb img:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 14px rgba(0,0,0,.2);
+}
+
+.li-cert-text h4{
+  margin:0;
+  font-size:15px;
+  font-weight:600;
+}
+
+.li-cert-text p{
+  margin-top:4px;
+  font-size:13px;
+  color:#555;
+}
+
+/* Modal */
+.li-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:999;
+}
+
+.li-modal-img{
+  display:block;
+  max-width:90%;
+  max-height:90%;
+  margin:5% auto;
+  border-radius:8px;
+}
+
+.li-close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  color:#fff;
+  cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -166,7 +229,7 @@ footer{
   <li><a href="#skills">Technical Skills</a></li>
   <li><a href="#business">Business</a></li>
   <li><a href="#leadership">Leadership</a></li>
-  <li><a href="#licenses">Licenses</a></li>
+  <li><a href="#licenses">Licenses & Certifications</a></li>
   <li><a href="#courses">Courses</a></li>
   <li><a href="#volunteering">Volunteering</a></li>
   <li><a href="#publications">Publications</a></li>
@@ -336,6 +399,42 @@ Jan 2018 - Oct 2018</p>
  <span>Management</span> 
 </div>
 </section>
+  <section id="licenses & Certifications">
+  <h2>Licenses & Certifications</h2>
+
+  <div class="li-cert-wrap">
+
+    <!-- DOT Certificate -->
+    <div class="li-cert">
+      <div class="li-cert-thumb" onclick="openCert('dot.jpg')">
+        <img src="dot.jpg" alt="USA DOT Hazardous Materials Certificate">
+      </div>
+      <div class="li-cert-text">
+        <h4>USA DOT Hazardous Materials Receiving</h4>
+        <p>Safety procedures in the receipt and handling of hazardous materials</p>
+      </div>
+    </div>
+
+    <!-- LIB Certificate -->
+    <div class="li-cert">
+      <div class="li-cert-thumb" onclick="openCert('lib.jpg')">
+        <img src="lib.jpg" alt="LIB Safety Certificate">
+      </div>
+      <div class="li-cert-text">
+        <h4>CMU Lithium-Ion Battery (LIB) Safety Training</h4>
+        <p>Safety procedures for lithium-ion battery handling</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="certModal" class="li-modal">
+  <span class="li-close" onclick="closeCert()">&times;</span>
+  <img id="certImage" class="li-modal-img">
+</div>
+
 
 <section id="post">
 <h2>Post</h2>
@@ -396,6 +495,17 @@ LinkedIn: <a href="https://www.linkedin.com/in/iyata-adikpe" target="_blank">Lin
 <footer>
 © Iyata Anthony
 </footer>
+  <script>
+function openCert(src){
+  document.getElementById("certImage").src = src;
+  document.getElementById("certModal").style.display = "block";
+}
+
+function closeCert(){
+  document.getElementById("certModal").style.display = "none";
+}
+</script>
+
 
 </body>
 </html>
