@@ -6,67 +6,6 @@
 <title>Iyata Anthony | Researcher & Technologist</title>
 
 <style>
-.li-cert {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-top: 12px;
-}
-
-.li-cert-thumb img {
-  width: 120px;
-  border-radius: 6px;
-  cursor: pointer;
-  border: 1px solid #e0e0e0;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
-}
-
-.li-cert-thumb img:hover {
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-  transform: translateY(-2px);
-}
-
-.li-cert-text h4 {
-  font-size: 15px;
-  margin: 0;
-  font-weight: 600;
-}
-
-.li-cert-text p {
-  font-size: 13px;
-  margin-top: 4px;
-  color: #555;
-}
-
-/* Modal */
-.li-modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-}
-
-.li-modal-img {
-  display: block;
-  max-width: 90%;
-  max-height: 90%;
-  margin: 5% auto;
-  border-radius: 8px;
-}
-
-.li-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
-}
-
 :root{
   --primary:#1f4fd8;
   --secondary:#6f7bff;
@@ -102,7 +41,7 @@ header img{
 header h1{margin:10px 0 5px;font-size:32px}
 header p{margin:0;font-size:16px}
 
-/* NAVIGATION */
+/* NAV */
 nav{
   position:sticky;
   top:0;
@@ -172,9 +111,7 @@ section h2{
   width:68px;
   transition:transform .3s;
 }
-.logo-link img:hover{
-  transform:scale(1.15);
-}
+.logo-link img:hover{transform:scale(1.15)}
 
 /* BADGES */
 .badges{
@@ -189,16 +126,48 @@ section h2{
   font-size:13px;
 }
 
-/* COLLAGE */
-.collage{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:12px;
-  margin-top:18px;
+/* LINKEDIN CERT STYLE */
+.li-cert{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
 }
-.collage img{
-  width:100%;
-  border-radius:14px;
+.li-cert-thumb img{
+  width:120px;
+  border-radius:6px;
+  cursor:pointer;
+  border:1px solid #e0e0e0;
+  transition:.25s;
+}
+.li-cert-thumb img:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 14px rgba(0,0,0,.2);
+}
+.li-cert-text h4{margin:0;font-size:15px}
+.li-cert-text p{margin-top:4px;font-size:13px;color:#555}
+
+/* MODAL */
+.li-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:999;
+}
+.li-modal-img{
+  display:block;
+  max-width:90%;
+  max-height:90%;
+  margin:5% auto;
+  border-radius:8px;
+}
+.li-close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  color:#fff;
+  cursor:pointer;
 }
 
 footer{
@@ -222,21 +191,10 @@ footer{
 <ul>
   <li><a href="#about">About</a></li>
   <li><a href="#education">Education</a></li>
-  <li><a href="#research">Research</a></li>
-  <li><a href="#work">Work Experience</a></li>
-  <li><a href="#skills">Technical Skills</a></li>
-  <li><a href="#business">Business</a></li>
-  <li><a href="#leadership">Leadership</a></li>
+  <li><a href="#work">Work</a></li>
+  <li><a href="#skills">Skills</a></li>
   <li><a href="#licenses">Licenses</a></li>
-  <li><a href="#courses">Courses</a></li>
-  <li><a href="#volunteering">Volunteering</a></li>
-  <li><a href="#publications">Publications</a></li>
-  <li><a href="#honors">Honors</a></li>
-  <li><a href="#post">Post</a></li>
-  <li><a href="#blog">Blog</a></li>
-  <li><a href="#hobbies">Hobbies</a></li>
   <li><a href="#contact">Contact</a></li>
-  <li><a href="#cv">CV</a></li>
 </ul>
 </nav>
 
@@ -250,126 +208,34 @@ footer{
 <section id="education">
 <h2>Education</h2>
 <div class="grid-3">
-
 <div class="card">
-<a class="logo-link" href="http://www.cmu.edu/africa" target="_blank">
-<img src="cmu.jpeg">
-</a>
+<img src="cmu.jpeg" class="logo-link">
 <h3>Carnegie Mellon University Africa</h3>
-<p>MSc Electrical & Computer Engineering<br>Jul 2024 – Dec 2025</p>
-<p><b>Grade:</b> 3.85 / 4.0</p>
+<p>MSc Electrical & Computer Engineering<br>2024 – 2025</p>
 </div>
-
-<div class="card">
-<a class="logo-link" href="https://www.wqu.edu" target="_blank">
-<img src="wqu.png">
-</a>
-<h3>WorldQuant University</h3>
-<p>Scientific Computing & Python for Data Science<br>2019 • Honors</p>
-</div>
-
-<div class="card">
-<a class="logo-link" href="https://www.babcock.edu.ng" target="_blank">
-<img src="babcock.png">
-</a>
-<h3>Babcock University, Nigeria</h3>
-<p>BSc Computer Science<br>2013 – 2017</p>
-<p><b>Grade:</b> First Class (4.6 / 5.0)</p>
-</div>
-
 </div>
 </section>
 
-<section id="research">
-<h2>Research</h2>
+<section id="licenses">
+<h2>Licenses & Certifications</h2>
 <div class="card">
-<ul>
-<li>Published Work</li>
-<li>Ongoing Work</li>
-</ul>
+<div class="li-cert">
+  <div class="li-cert-thumb" onclick="openCert()">
+    <img src="images/dot.jpg" alt="USA DOT Certificate">
+  </div>
+  <div class="li-cert-text">
+    <h4>USA DOT Hazardous Materials Receiving</h4>
+    <p>Safety procedures in the receipt and handling of hazardous materials</p>
+  </div>
+</div>
 </div>
 </section>
 
-<section id="work">
-<h2>Work Experience</h2>
-
-<div class="card">
-<b>CV:</b>
-<a href="#">Academic CV</a> |
-<a href="#">Professional CV</a>
+<!-- MODAL -->
+<div id="certModal" class="li-modal">
+<span class="li-close" onclick="closeCert()">&times;</span>
+<img src="images/dot.jpg" class="li-modal-img">
 </div>
-
-<div class="grid-2">
-
-<div class="card">
-<a class="logo-link" href="http://www.kcrc.rw" target="_blank">
-<img src="kcrc.png">
-</a>
-<h3>Research Assistant – KCRC</h3>
-<p>Jun 2025 – Present • Kigali, Rwanda</p>
-<p>Researching on the technical viability of lithium-ion batteries for microgrid storage applications from electric vehicles & E-waste</p>
-</div>
-
-<div class="card">
-<a class="logo-link" href="https://www.nnpcgroup.com" target="_blank">
-<img src="nnpc.png">
-</a>
-<h3>NNPC Limited</h3>
-<p>IT Strategist (Apr 2023–Present)<br>
-Business & IS Architect (May 2020–Mar 2023)</p>
-</div>
-
-<div class="card">
-<a class="logo-link" href="http://www.cmu.edu/africa" target="_blank">
-<img src="cmu.jpeg">
-</a>
-<h3>IT Support Officer – CMU Africa</h3>
-<p>Carnegie Mellon University Africa
-Sep 2024 - May 2025  
-Kigali City, Rwanda
-IT audio visual systems support</p>
-</div>
-
-<div class="card">
-<a class="logo-link" href="https://www.zcp.com.ng" target="_blank">
-<img src="zane.jpeg">
-</a>
-<h3>Operations Officer – Zane Commodity Platform</h3>
-<p>Zane Commodity Platform Ltd.
-Nov 2019 - Apr 2020</p>
-</div>
-
-<div class="card">
-<a class="logo-link" href="https://www.mathevia.co.uk" target="_blank">
-<img src="shield.png">
-</a>
-<h3>Tutor</h3>
-<p>Mathevia
-Nov 2018 - Apr 2020  
-Tutoring mathematics and computer programming.</p>
-</div>
-
-<div class="card">
-<a class="logo-link" href="https://www.marketplace.whmcs.com/group/gladepay" target="_blank">
-<img src="gtech.png">
-</a>
-<h3>Software Developer – GladePay</h3>
-<p>GladePay (www.gladepay.com)
-Dec 2018 - May 2019  
-GladePay is an online payments processing company. The company's vision is to make payments processing as SIMPLE as possible.</p>
-</div>
-
-<div class="card">
-<a class="logo-link" href="http://thesmarthub.com.ng" target="_blank">
-<img src="smarthub.jpg">
-</a>
-<h3>System Analyst</h3>
-<p>The Smarthub Nigeria
-Jan 2018 - Oct 2018</p>
-</div>
-
-</div>
-</section>
 
 <section id="skills">
 <h2>Technical Skills</h2>
@@ -378,115 +244,28 @@ Jan 2018 - Oct 2018</p>
 <span>EHS Engineering</span>
 <span>Python</span>
 <span>Data Science</span>
-<span>ITIL</span>
-<span>Operations Research</span>
-<span>Leadership</span>
-<span>Research Skills</span>
-<span>Technical Support</span>
-<span>Health & Safety Training</span>
-<span>Safety Management Systems</span>
-<span>Environment, Health, Safety (EHS) </span>
-<span>Computer Science</span>
-  <span>Data Quality</span>
-  <span>Quality Assurance</span>
-  <span>English</span>
-  <span>Record Management</span>
-  <span>Debate</span>
-  <span>Pubic Speaking</span>
-  <span>Microsoft Office</span>
- <span>Management</span> 
-</div>
-</section>
-  <section id="education">
-<h2>Education</h2>
-<div class="grid-3">
-  <!-- LinkedIn-style Certificate -->
-<div class="li-cert">
-  <div class="li-cert-thumb" onclick="openCert()">
-    <img src="images/dot.jpg" alt="USA DOT Hazardous Materials Certificate">
-  </div>
-
-  <div class="li-cert-text">
-    <h4>USA DOT Hazardous Materials Receiving</h4>
-    <p>Safety procedures in the receipt and handling of hazardous materials</p>
-  </div>
-</div>
-
-<!-- Modal -->
-<div id="certModal" class="li-modal">
-  <span class="li-close" onclick="closeCert()">&times;</span>
-  <img class="li-modal-img" src="images/dot.jpg">
-</div>
-
-
-<div class="card">
-<a class="logo-link" href="http://www.cmu.edu/africa" target="_blank">
-<img src="cmu.jpeg">
-</a>
-<h3>Carnegie Mellon University Africa</h3>
-<p>MSc Electrical & Computer Engineering<br>Jul 2024 – Dec 2025</p>
-<p><b>Grade:</b> 3.85 / 4.0</p>
-</div>
-
-<section id="post">
-<h2>Post</h2>
-<div class="card">
-<p>CEPREC Rwanda visit to the Volkswagen GenFarm Project in Gashora, Rwanda.</p>
-<div class="collage">
-<img src="cerpec1.jpg">
-<img src="cerpec2.jpg">
-<img src="cerpec3.jpg">
-<img src="cerpec4.jpg">
-<img src="cerpec5.jpg">
-</div>
-</div>
-</section>
-
-<section id="blog">
-<h2>Blog</h2>
-<div class="card">
-<ul>
-<li>Research write-ups</li>
-<li>Tech articles</li>
-<li>Case studies</li>
-<li>Industry insights</li>
-<li>Thought leadership</li>
-</ul>
-</div>
-</section>
-
-<section id="hobbies">
-<h2>Hobbies</h2>
-<div class="card">
-Reading • Gaming • Podcasting • Volunteering • Writing
+<span>IT Strategy</span>
 </div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
 <div class="card">
-<p>Email: adikpeiyata@gmail.com<br>
-LinkedIn: <a href="https://www.linkedin.com/in/iyata-adikpe" target="_blank">LinkedIn Profile</a></p>
+Email: adikpeiyata@gmail.com<br>
+<a href="https://www.linkedin.com/in/iyata-adikpe" target="_blank">LinkedIn</a>
 </div>
 </section>
 
-<section id="cv">
-<h2>CV & Certifications</h2>
-<div class="card">
-<ul>
-<li>DASM – PMI</li>
-<li>BRMP – APMG</li>
-<li>Prosci® Change Management</li>
-<li>COBIT 2019 – ISACA</li>
-<li>PMI-ACP</li>
-</ul>
-<p>Academic CV (Upload later)</p>
-</div>
-</section>
+<footer>© Iyata Anthony</footer>
 
-<footer>
-© Iyata Anthony
-</footer>
+<script>
+function openCert(){
+  document.getElementById("certModal").style.display="block";
+}
+function closeCert(){
+  document.getElementById("certModal").style.display="none";
+}
+</script>
 
 </body>
 </html>
