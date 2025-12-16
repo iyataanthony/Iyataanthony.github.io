@@ -360,9 +360,77 @@ footer{
     <!-- (the <section class="publications-section">...</section>) -->
 
   </div>
+  <script>
+  function openCert(image) {
+    document.getElementById("certImage").src = image;
+    document.getElementById("certModal").style.display = "block";
+  }
+
+  function closeCert() {
+    document.getElementById("certModal").style.display = "none";
+    document.getElementById("certImage").src = "";
+  }
+</script>
+
 
 </body>
 </html>
+.cert-group h3 {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #111;
+}
+
+.cert-group ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cert-group li {
+  margin: 8px 0;
+}
+
+.cert-group a {
+  color: #0a66c2;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.cert-group a:hover {
+  text-decoration: underline;
+}
+
+/* Modal preview */
+.cert-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.cert-image {
+  display: block;
+  max-width: 90%;
+  max-height: 85%;
+  margin: 5% auto;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
 
 </style>
 </head>
@@ -791,19 +859,40 @@ LinkedIn: <a href="https://www.linkedin.com/in/iyata-adikpe" target="_blank">Lin
 </div>
 </section>
 
-<section id="cv">
-<h2>CV & Certifications</h2>
-<div class="card">
-<ul>
-<li>DASM – PMI</li>
-<li>BRMP – APMG</li>
-<li>Prosci® Change Management</li>
-<li>COBIT 2019 – ISACA</li>
-<li>PMI-ACP</li>
-</ul>
-<p>Academic CV (Upload later)</p>
-</div>
+<section id="cv-certifications" class="section-box">
+  <h2 class="section-title">Certifications</h2>
+
+  <div class="cert-group">
+    <h3>Business</h3>
+    <ul>
+      <li><a href="#" onclick="openCert('brmp.jpg')">Business Relationship Management Professional (BRMP)</a></li>
+      <li><a href="#" onclick="openCert('ab.jpg')">Agile Business Analysis</a></li>
+      <li><a href="#" onclick="openCert('blackbird.jpg')">Blackbird Strategy</a></li>
+      <li><a href="#" onclick="openCert('prosci.jpg')">Prosci Change Management</a></li>
+    </ul>
+  </div>
+
+  <div class="cert-group">
+    <h3>Industries</h3>
+    <ul>
+      <li><a href="#" onclick="openCert('dot.jpg')">Digital Transformation</a></li>
+      <li><a href="#" onclick="openCert('lib.jpg')">Library & Information Systems</a></li>
+      <li><a href="#" onclick="openCert('nnpcc.jpg')">NNPCC</a></li>
+      <li><a href="#" onclick="openCert('ieee.jpg')">IEEE Membership</a></li>
+    </ul>
+  </div>
+
+  <div class="cert-group">
+    <h3>Information Technology</h3>
+    <ul>
+      <li><a href="#" onclick="openCert('aif.jpg')">Artificial Intelligence Fundamentals</a></li>
+      <li><a href="#" onclick="openCert('cyber.jpg')">Cybersecurity</a></li>
+      <li><a href="#" onclick="openCert('pmi.jpg')">Project Management Institute (PMI)</a></li>
+      <li><a href="#" onclick="openCert('scp.jpg')">Supply Chain Professional</a></li>
+    </ul>
+  </div>
 </section>
+
 
 <footer>
 © Linestech 
@@ -827,6 +916,11 @@ function closeCert(){
 }
 
 </script>
+  <div id="certModal" class="cert-modal">
+  <span class="close-btn" onclick="closeCert()">&times;</span>
+  <img id="certImage" class="cert-image" alt="Certification Preview">
+</div>
+
 
 
 </body>
